@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+nav {
+  background-color: #007acc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly; }
+  nav li {
+    list-style: none;
+    color: white;
+    font-size: 2.4rem; }
+
+.principal {
+  background-color: antiquewhite;
+  text-align: center;
+  padding: 20px; }
+  .principal h1 {
+    font-size: 9rem;
+    font-family: Georgia, 'Times New Roman', Times, serif; }
+
+.imagenIzquierda, .imagenDerecha {
+  background-color: aquamarine;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+  .imagenIzquierda p, .imagenDerecha p {
+    font-size: 3rem; }
+
+.imagenDerecha {
+  background-color: cornflowerblue; }

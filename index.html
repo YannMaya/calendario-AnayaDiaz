@@ -14,25 +14,201 @@
     <!-- CSS BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- css propio -->
     <link rel="stylesheet" href="css/estilos.css" />
+    <title>Mejora tu inglés</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <li>HOME</li>
-            <li>EJERCICIOS</li>
-            <li>VIDEOS</li>
-            <li>RECURSOS</li>
-            <li>CONTACTO</li>
-        </nav>
-    </header>
-    <main class="container-fluid">
-        <!-- seccion principal -->
-        <div class="row principal__titulo">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3 fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">EJERCICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">VIDEOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- showcase -->
+    <section class="light-dark p-5 p-lg-0 pt-lg-5 pb-5 text-center text-sm-start showcase">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div class="text-center">
+                    <h1 class="animate__animated animate__headShake animate__delay-1s animate__infinite py-5">¿Quieres
+                        aprender <span class="text-warning">inglés</span> de manera rápida?</h1>
+                    <button class="btn btn-primary btn-lg">Start here</button>
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block estadosUnidos" src="media/estadosunidos.jpg"
+                    alt="estadosunidos">
+            </div>
+        </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="bg-primary text-light p-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0">Subscríbete</h3>
+            </div>
+            <div class="input-group newsletter pt-3">
+                <input type="text" class="form-control" placeholder="Ingresa tu email">
+                <button class="btn btn-light btn-lg" type="button" id="button-addon2">Enviar</button>
+            </div>
+        </div>
+    </section>
+    <!-- boxes -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h3 class="card-title">
+                                Virtual
+                            </h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, doloremque?
+                            </p>
+                            <a href="" class="btn btn-primary">Leer mas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1">
+                                <i class="bi bi-collection-play"></i>
+                            </div>
+                            <h3 class="card-title">
+                                Virtual
+                            </h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, doloremque?
+                            </p>
+                            <a href="" class="btn btn-primary">Leer mas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <h3 class="card-title">
+                                Virtual
+                            </h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, doloremque?
+                            </p>
+                            <a href="" class="btn btn-primary">Leer mas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- learn sections -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="media/studying.jpg" class="img-fluid" alt="personasReunion">
+                </div>
+                <div class="col-md p-5">
+                    <h2>Aprende con nosotros</h2>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam similique soluta architecto
+                        delectus eos provident impedit? Itaque odio amet tempore neque cupiditate tenetur nam reiciendis
+                        officia deleniti modi fugit, sit incidunt fuga cum quasi at sint asperiores qui numquam
+                        accusantium exercitationem veniam? Debitis culpa excepturi est eius deserunt ex hic?
+                    </p>
+                    <div class="btn btn-light mt-3">
+                        <i class="bi bit-chevron-right">Mas detalles</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- acordion -->
+    <section class="p-5">
+        <div class="container">
+            <h2 class="tex-center mb-4">
+                Preguntas Frecuentes
+            </h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                            body.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                            body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                            body. Nothing more exciting happening here in terms of content, but just filling up the
+                            space to make it look, at least at first glance, a bit more representative of how this would
+                            look in a real-world application.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--     <main class="container-fluid"> -->
+    <!-- seccion principal -->
+    <!-- <div class="row principal__titulo">
             <div class="col-lg-12 col-md-12 col-xs-12 principal"> 
-                <h1 class="animate__animated animate__headShake animate__delay-1s animate__infinite" >¿Quieres aprender inglés de manera rápida?</h1>
+                
             </div>
         </div>
         <div class="row medios">
@@ -44,12 +220,15 @@
                 <img src="media/reinounido.png" alt="ReinoUnido"> 
                 <p>Inglés Británico</p>
             </div>
-        </div>
-    </main>
+        </div> -->
+    <!--    </main> -->
     <footer>
 
     </footer>
-    <script src="proyecto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="simulador.js"></script>
 </body>
 
 </html>

@@ -1,43 +1,51 @@
-* {
-  margin: 0;
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+body {
   padding: 0;
-  box-sizing: border-box; }
-
-body::before {
-  display: block;
-  height: 60px;
-  content: ''; }
-
-nav {
-  background-color: #007acc;
+  margin: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly; }
-
-.principal {
-  background-color: antiquewhite;
-  text-align: center;
-  align-items: center;
   justify-content: center;
-  padding: 20px; }
-  .principal h1 {
-    font-size: 9rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black; }
+  width: 100vw;
+  height: 40vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
-img {
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  cursor: default;
-  transition: all 400ms ease; }
-  img:hover {
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3%); }
+.contenedor {
+  display: block;
+  width: 300px;
+  max-width: 20%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px; }
 
-@media (min-width: 768px) {
-  .newsletter {
-    width: 50%; } }
+.boton-grid {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+  margin: 20px 0; }
 
-@media (min-width: 992px) {
-  .showcase {
-    height: 370px; } }
+.boton {
+  background-color: #ff5239;
+  border-radius: 3px;
+  padding: 5px; }
+
+.startBoton, .nextBoton {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  width: 100%; }
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.ocultar {
+  display: none; }
+
+.registroNombre {
+  margin-top: 100px; }

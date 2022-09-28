@@ -1,4 +1,37 @@
-let condicion = true
+const inputNombre = document.getElementById('inputNombre')
+const btnNombre = document.getElementById('btnNombre')
+const registro = document.getElementById('registro')
+const test = document.getElementById('test')
+const btnTest = document.getElementById('btnTest')
+
+
+
+
+btnNombre.addEventListener('click', ()=>{
+    registro.innerHTML = `<div class="card" style="width: 10rem;"> Bienvenido ${inputNombre.value}<div>`
+})
+
+btnTest.addEventListener('click', ()=>{
+    mostrarTest();
+})
+
+const mostrarTest = () => {
+    preguntas.forEach((item, opcion) => {
+        const question = document.createElement('div')
+        question.innerHTML = 
+                            `<label>
+                            ${item.prompt}
+                            <br>
+                            <input type="radio" name="${opcion}" value=${item.opcionCorrecta}>
+                            </label>`
+        const options = document.createElement('p')
+        options.innerHTML = preguntas[0].opciones
+        console.log(preguntas[1])
+        test.appendChild(question)
+    })
+}
+
+/* let condicion = true
 let respuestaInicial
 function iniciarTest() {
     respuestaInicial = prompt("Bienvenido a nuestra página para aprender inglés. Nuestro sistema le ayudará a determinar el nivel en donde debería empezar a estudiar. ¿Quiere descubrirlo ahora? SI / NO") 
@@ -30,22 +63,37 @@ function determinarNivel (puntaje){
         break
     }
 }
-
-const preguntas = [
-    {prompt: "Where do you live?\n(a)I lives in Argentina \n(b)I am live in USa \n(c)I live in Mexico",
+ */
+const preguntas = [{
+    prompt: "Where do you live?",
+    opciones: {
+        a: "I lives in Argentina", 
+        b: "I am live in USA", 
+        c:"I live in Mexico",
+    },
     opcionCorrecta: "c"
 },
-    {prompt: "What did you do yesterday?\n(a)I did worked in my office \n(b)I went to my office \n(c)I did went to my office",
+    {prompt: "What did you do yesterday?",
+    opciones: {
+        a: "I went to work", 
+        b: "I did went to work", 
+        c:"I did to work",
+    },
+    opcionCorrecta: "a"
+},
+    {prompt: "What are you going to do tomorrow?",
+    opciones: {
+        a: "I am work", 
+        b: "I am going to work", 
+        c:"I work to work",
+    },
     opcionCorrecta: "b"
-},
-    {prompt: "What are you going to do tomorrow?\n(a)I will to study \n(b)I have go to study \n(c)I am going to study",
-    opcionCorrecta: "c"
 },
 ]
 
-let score = 0;
+/* let score = 0; */
 
-do{
+/* do{
     iniciarTest();
     if(respuestaInicial.toLocaleLowerCase() == "si" || respuestaInicial.toLocaleLowerCase() == "sí" ){
         preguntas.forEach(function(pregunta){
@@ -66,4 +114,4 @@ do{
         alert("Have a nice day")
         condicion = false
     }
-}while(condicion)
+}while(condicion) */

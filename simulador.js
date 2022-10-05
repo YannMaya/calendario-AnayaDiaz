@@ -19,17 +19,19 @@ const mostrarTest = () => {
     preguntas.forEach((item, opcion) => {
         const question = document.createElement('div')
         question.innerHTML = 
-                            `<label>
+                            `<br>
+                            <label>
                             ${item.prompt}
                             <br>
-                            <input type="radio" name="${opcion}" value=${item.opcionCorrecta}>
                             </label>`
-        const options = document.createElement('p')
-        options.innerHTML = preguntas[0].opciones
-        console.log(preguntas[1])
+        const options = document.createElement('div')
+        options.innerHTML = `<input type="radio" name="${opcion}" value=${item.opcionCorrecta}>${preguntas[1]}`
+        console.log(options)
+        question.appendChild(options)
         test.appendChild(question)
     })
 }
+
 
 /* let condicion = true
 let respuestaInicial

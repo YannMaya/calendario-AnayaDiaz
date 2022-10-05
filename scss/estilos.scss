@@ -1,60 +1,19 @@
-*,*::before,*::after{
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+*{
+    margin: 0;
+    padding: 0;
 }
 
 body{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    height: 40vw;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-} 
-
-.contenedor{
-    display: block;
-    width: 300px;
-    max-width: 20%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
-}
-
-.boton-grid{
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.boton{
-    background-color: rgb(255, 82, 57);
-    border-radius: 3px;
-    padding: 5px;
-}
-
-.startBoton, .nextBoton{
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 10px 20px;
     width: 100%;
 }
 
-.controls{
+h1, h2{
+    text-align: center;
+}
+
+#contenedor{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-}
-
-.ocultar{
-    display: none;
-}
-
-.registroNombre{
-    margin-top: 100px;
+    gap: 6px;
 }

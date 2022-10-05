@@ -1,3 +1,5 @@
+
+
 const tareas = []
 let idUnico = 0
 
@@ -55,6 +57,17 @@ function agregarTareaNueva(array){
         array.push(nuevaTarea)
         mostrarListaTareas(array)
         sincronizarStorage()
+    }else{
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oopsi...',
+            text:'Necesitas rellenar los campos',
+            footer: '<a href="">¿Quieres saber más?</a>',
+            backdrop: `
+            url(media/ops.gif) 
+            left top
+            `
+        })
     }
     agregarHora.value = ""
     agregarLugar.value = ""
@@ -74,6 +87,10 @@ function eliminarTarea(idUnico){
             tareas.splice(card, 1)
             card.remove()
             removeFromLocalStorage(idUnico)
+            Swal.fire({
+                icon: 'success',
+                title: 'Has eliminado la tarea'
+            })
     })
 }
 
@@ -83,6 +100,25 @@ function eliminarTodo(){
         console.log(tareas)
         localStorage.clear()
         contenedor.innerHTML = ''
+        Swal.fire({
+            icon: 'success',
+            title: 'Has eliminado todas las tareas'
+        })
+/*         Swal.fire({
+            icon: 'warning',
+            title: '¿Estas seguro de eliminar todo?',
+            showCancelButton: true,
+            confirmButtonText: 'Si, seguro',
+            cancelButtonText: 'Nope'
+        }).then((result)=>{
+            if(result.isConfirmed){
+                Swal.fire({
+                    title: 'Se han borrado todas las tareas',
+                    icon: 'success',
+                    text: 'Todas las tareas se han borrado'
+                })
+            }
+        }) */
     })
 }   
 

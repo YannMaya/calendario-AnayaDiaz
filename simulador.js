@@ -1,119 +1,112 @@
-const inputNombre = document.getElementById('inputNombre')
-const btnNombre = document.getElementById('btnNombre')
-const registro = document.getElementById('registro')
-const test = document.getElementById('test')
-const btnTest = document.getElementById('btnTest')
+const tareas = []
+let idUnico = 0
 
+class Tarea {
+    constructor (nombre, lugar, hora, idUnico){
+    //propiedades
+    this.nombre = nombre,
+    this.lugar = lugar,
+    this.hora = hora,
+    this.idUnico = idUnico++
+    }
+}
 
+const contenedor = document.getElementById("contenedor")
+const botonEliminar = document.getElementById("botonEliminar")
+const botonEliminarTodo = document.getElementById("eliminarTodo")
+const botonAgregarTarea = document.getElementById("agregarTarea")
+const botonOcultarTareas = document.getElementById("ocultarTareas")
+const botonMostrarTareas = document.getElementById("mostrarTareas")
 
-
-btnNombre.addEventListener('click', ()=>{
-    registro.innerHTML = `<div class="card" style="width: 10rem;"> Bienvenido ${inputNombre.value}<div>`
-})
-
-btnTest.addEventListener('click', ()=>{
-    mostrarTest();
-})
-
-const mostrarTest = () => {
-    preguntas.forEach((item, opcion) => {
-        const question = document.createElement('div')
-        question.innerHTML = 
-                            `<br>
-                            <label>
-                            ${item.prompt}
-                            <br>
-                            </label>`
-        const options = document.createElement('div')
-        options.innerHTML = `<input type="radio" name="${opcion}" value=${item.opcionCorrecta}>${preguntas[1]}`
-        console.log(options)
-        question.appendChild(options)
-        test.appendChild(question)
+const eventListeners = () =>{
+    document.addEventListener("DOMContentLoaded", ()=>{
+        tareas = JSON.parse(localStorage.getItem("tareas"))
+    mostrarListaTareas()
     })
 }
 
-
-/* let condicion = true
-let respuestaInicial
-function iniciarTest() {
-    respuestaInicial = prompt("Bienvenido a nuestra página para aprender inglés. Nuestro sistema le ayudará a determinar el nivel en donde debería empezar a estudiar. ¿Quiere descubrirlo ahora? SI / NO") 
+function mostrarListaTareas(array){
+    contenedor.innerHTML = ""
+    array.forEach((tarea)=>{
+        const {nombre, lugar, hora, idUnico} = tarea
+        const listaTarea = document.createElement("div")
+        listaTarea.id = idUnico
+        listaTarea.innerHTML = `<p>Tarea: ${nombre}</p>
+                                <p>Lugar: ${lugar}</p>
+                                <p>Hora: ${hora}</p>
+                                <button id="botonEliminar${idUnico}" class="btn btn-outline-danger ${idUnico}" style="width:6rem">Eliminar</button>
+                                <br>
+                                `
+        listaTarea.setAttribute("class", "card")
+        listaTarea.setAttribute("style", "width: 11rem")
+        contenedor.append(listaTarea)
+        eliminarTarea(idUnico)
+    })
+    eliminarTodo()
 }
 
-const regresar = () => {
-    let respuestaRepeticion = prompt("¿Deseas regresar al menu inicial? - Respuesta SI / NO")
-    if(respuestaRepeticion.toLocaleLowerCase() == "si" || respuestaRepeticion.toLocaleLowerCase() =="sí" ){
-        condicion = true
-        score = 0
-    }else{
-        alert("Have a nice day")
-        condicion = false
-    };
-}
-
-function determinarNivel (puntaje){
-    switch(puntaje){
-        case 1:
-            alert("Comienza con el nivel A1");
-        break
-        case 2:
-            alert("Comienza con el nivel A2");
-        break
-        case 3:
-            alert("Comienza con el nivel B1");
-        break
-        default: alert("Comienza con el nivel A0");
-        break
+function agregarTareaNueva(array){
+    const agregarNombreTarea = document.getElementById("nombreTarea")
+    const agregarLugar = document.getElementById("lugarTarea")
+    const agregarHora = document.getElementById("horaTarea")
+    
+    if(agregarHora.value.length > 0 && agregarLugar.value.length > 0 && agregarNombreTarea.value.length > 0){
+        const nuevaTarea = new Tarea (agregarNombreTarea.value, agregarLugar.value, agregarHora.value, array.length+1)
+        array.push(nuevaTarea)
+        mostrarListaTareas(array)
+        sincronizarStorage()
     }
+    agregarHora.value = ""
+    agregarLugar.value = ""
+    agregarNombreTarea.value = ""
 }
- */
-const preguntas = [{
-    prompt: "Where do you live?",
-    opciones: {
-        a: "I lives in Argentina", 
-        b: "I am live in USA", 
-        c:"I live in Mexico",
-    },
-    opcionCorrecta: "c"
-},
-    {prompt: "What did you do yesterday?",
-    opciones: {
-        a: "I went to work", 
-        b: "I did went to work", 
-        c:"I did to work",
-    },
-    opcionCorrecta: "a"
-},
-    {prompt: "What are you going to do tomorrow?",
-    opciones: {
-        a: "I am work", 
-        b: "I am going to work", 
-        c:"I work to work",
-    },
-    opcionCorrecta: "b"
-},
-]
 
-/* let score = 0; */
+function ocultarTareas(){
+    contenedor.innerHTML = ""
+}
 
-/* do{
-    iniciarTest();
-    if(respuestaInicial.toLocaleLowerCase() == "si" || respuestaInicial.toLocaleLowerCase() == "sí" ){
-        preguntas.forEach(function(pregunta){
-            let respuesta = prompt(pregunta.prompt);
-            if(respuesta == pregunta.opcionCorrecta){
-                score++;
-                alert("correct!");
-            }else{
-                alert("wrong!");
-            }
-        })
-        alert("Obtuviste " + score + "/" + preguntas.length);
+function eliminarTarea(idUnico){
+    let botonEliminar = document.getElementById("botonEliminar" + idUnico)
+    botonEliminar.addEventListener('click', (e)=>{
+        tareaAEliminar = e.target
+            console.log("ID", tareaAEliminar.id)
+            let card = tareaAEliminar.closest('.card')
+            tareas.splice(card, 1)
+            card.remove()
+            removeFromLocalStorage(idUnico)
+    })
+}
 
-        determinarNivel(score);
-        regresar ();
+function eliminarTodo(){
+    botonEliminarTodo.addEventListener('click', ()=>{
+        tareas.length = 0
+        console.log(tareas)
+        localStorage.clear()
+        contenedor.innerHTML = ''
+    })
+}   
 
-    }else{
-        alert("Have a nice day")
-        condicion = false
-    }
-}while(condicion) */
+const sincronizarStorage = () =>{
+    localStorage.setItem("tareas", JSON.stringify(tareas))
+}
+
+botonAgregarTarea.addEventListener("click", ()=>{
+    agregarTareaNueva(tareas)
+})
+
+botonMostrarTareas.addEventListener("click", () =>{
+    mostrarListaTareas(tareas)
+})
+
+
+botonOcultarTareas.addEventListener("click",()=>{
+    ocultarTareas()
+})
+
+function removeFromLocalStorage(idUnico){
+    let tareas = JSON.parse(localStorage.getItem("tareas"))
+    let nuevasTareas = tareas.filter((tarea)=>{
+        return tarea.idUnico !== idUnico
+    }) 
+    localStorage.setItem("tareas", JSON.stringify(nuevasTareas))
+}

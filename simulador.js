@@ -1,4 +1,15 @@
-
+fetch("https://www.googleapis.com/calendar/v3/calendars/es.ar%23holiday%40group.v.calendar.google.com/events?key=AIzaSyBjJiAFfyMDSOwJOuJ7LW_aWdJ-hNuXUr4")
+.then((data)=>{
+    data.json().then((respuesta)=>{
+        let today = new Date ()
+        let todayParse = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`
+        let encontrado = respuesta.items.find((e)=>{
+            return e.start.date === todayParse   
+        })
+        let feriado = document.getElementById("feriado")
+        feriado.textContent = encontrado?.summary
+    })
+})
 
 const tareas = []
 let idUnico = 0
@@ -96,29 +107,33 @@ function eliminarTarea(idUnico){
 
 function eliminarTodo(){
     botonEliminarTodo.addEventListener('click', ()=>{
-        tareas.length = 0
-        console.log(tareas)
-        localStorage.clear()
-        contenedor.innerHTML = ''
         Swal.fire({
-            icon: 'success',
-            title: 'Has eliminado todas las tareas'
-        })
-/*         Swal.fire({
             icon: 'warning',
-            title: '¿Estas seguro de eliminar todo?',
+            title: '¿Quieres eliminar todas las tareas?',
             showCancelButton: true,
-            confirmButtonText: 'Si, seguro',
-            cancelButtonText: 'Nope'
-        }).then((result)=>{
-            if(result.isConfirmed){
+            confirmButtonText: 'Si, eliminar',
+            cancelButtonText: 'no, no eliminar',
+            confirmButtonColor: 'green',
+            cancelButtonColor: 'red',
+        }).then((resultado)=>{
+            if(resultado.isConfirmed){
                 Swal.fire({
-                    title: 'Se han borrado todas las tareas',
+                    title: 'Has eliminado todas las tareas',
                     icon: 'success',
-                    text: 'Todas las tareas se han borrado'
+                    confirmButtonColor: 'green'
+                })
+                tareas.length = 0
+                console.log(tareas)
+                localStorage.removeItem("tareas")
+                contenedor.innerHTML = ''
+            }else{
+                Swal.fire({
+                    title: 'No se eliminaron las tareas',
+                    icon: 'error',
+                    confirmButtonColor: 'red',
                 })
             }
-        }) */
+        })
     })
 }   
 
@@ -134,7 +149,6 @@ botonMostrarTareas.addEventListener("click", () =>{
     mostrarListaTareas(tareas)
 })
 
-
 botonOcultarTareas.addEventListener("click",()=>{
     ocultarTareas()
 })
@@ -146,3 +160,13 @@ function removeFromLocalStorage(idUnico){
     }) 
     localStorage.setItem("tareas", JSON.stringify(nuevasTareas))
 }
+
+//LUXON
+const DateTime = luxon.DateTime
+const fechaAhora = DateTime.now()
+fechaAhora.setLocale('en')
+console.log(fechaAhora)
+
+let divFechaHoy = document.getElementById("fechaHoy")
+let fecha = fechaAhora.toLocaleString(DateTime.DATE_MED)
+divFechaHoy.innerHTML = `${fecha}`

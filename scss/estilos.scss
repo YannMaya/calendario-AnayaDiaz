@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin: 5px;
     padding: 0;
 }
 
@@ -16,4 +16,22 @@ h1, h2{
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
+}
+
+.etiquetaRoja{
+    color: red;
+    border: 1px;
+    font-weight: bold;
+}
+
+.etiquetaAmarilla{
+    color: rgb(240, 216, 0);
+    border: 1px;
+    font-weight: bold;
+}
+
+.etiquetaAzul{
+    color: rgb(1, 47, 212);
+    border: 1px;
+    font-weight: bold;
 }

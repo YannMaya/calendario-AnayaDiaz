@@ -15,11 +15,12 @@ const tareas = []
 let idUnico = 0
 
 class Tarea {
-    constructor (nombre, lugar, hora, idUnico){
+    constructor (nombre, lugar, hora, prioridad, idUnico){
     //propiedades
     this.nombre = nombre,
     this.lugar = lugar,
     this.hora = hora,
+    this.prioridad = prioridad,
     this.idUnico = idUnico++
     }
 }
@@ -41,12 +42,13 @@ const eventListeners = () =>{
 function mostrarListaTareas(array){
     contenedor.innerHTML = ""
     array.forEach((tarea)=>{
-        const {nombre, lugar, hora, idUnico} = tarea
+        const {nombre, lugar, hora, prioridad, idUnico} = tarea
         const listaTarea = document.createElement("div")
         listaTarea.id = idUnico
         listaTarea.innerHTML = `<p>Tarea: ${nombre}</p>
                                 <p>Lugar: ${lugar}</p>
                                 <p>Hora: ${hora}</p>
+                                <p class="${prioridad === "Urgente" ? "etiquetaRoja" : prioridad === "Muy importante" ? "etiquetaAmarilla" : "etiquetaAzul"}">Prioridad: ${prioridad}</p>
                                 <button id="botonEliminar${idUnico}" class="btn btn-outline-danger ${idUnico}" style="width:6rem">Eliminar</button>
                                 <br>
                                 `
@@ -62,9 +64,10 @@ function agregarTareaNueva(array){
     const agregarNombreTarea = document.getElementById("nombreTarea")
     const agregarLugar = document.getElementById("lugarTarea")
     const agregarHora = document.getElementById("horaTarea")
+    const agregarPrioridad = document.getElementById("prioridad")
     
     if(agregarHora.value.length > 0 && agregarLugar.value.length > 0 && agregarNombreTarea.value.length > 0){
-        const nuevaTarea = new Tarea (agregarNombreTarea.value, agregarLugar.value, agregarHora.value, array.length+1)
+        const nuevaTarea = new Tarea (agregarNombreTarea.value, agregarLugar.value, agregarHora.value, agregarPrioridad.value,array.length+1)
         array.push(nuevaTarea)
         mostrarListaTareas(array)
         sincronizarStorage()

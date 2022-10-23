@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
     <!-- BS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Calendario</title>
 </head>
+
 <body>
     <h1 id="calendario">Calendario Año 2022</h1>
     <h2 id="fechaHoy">Fecha de hoy</h2>
@@ -18,10 +21,19 @@
     <form>
         <label for="tarea">Agrega el nombre de la tarea:</label>
         <input type="text" id="nombreTarea" name="tarea"><br><br>
-        <label for="lugarTarea" >Agrega el lugar:</label>
+        <label for="lugarTarea">Agrega el lugar:</label>
         <input type="text" id="lugarTarea" name="lugarTarea"><br><br>
-        <label for="horaTarea" >Agrega la hora:</label>
-        <input type="text" id="horaTarea" name="horaTarea"><br><br>
+        <label for="horaTarea">Agrega la fecha:</label>
+        <input type="datetime-local" id="horaTarea" name="horaTarea"><br><br>
+        <div class="dropdown">
+            <label for="prioridad">Prioridad</label>
+            <select class="btn btn-secondary dropdown-toggle btn-info" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false" name="prioridad" id="prioridad">
+                <option><a class="dropdown-item" href="#">Importante</a></option>
+                <option><a class="dropdown-item" href="#">Muy importante</a></option>
+                <option><a class="dropdown-item" href="#">Urgente</a></option>
+            </select>
+        </div><br>
     </form>
 
     <button id="agregarTarea" class="btn btn-warning">Agregar tarea</button><br><br>
@@ -33,15 +45,20 @@
     <button id="eliminarTodo" class="btn btn-danger">Eliminar todo</button>
 
     <!-- BS -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
 
-<!-- SA -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SA -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- LUXON -->
-<script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+    <!-- LUXON -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
 
-<script src="simulador.js"></script>
+    <script src="simulador.js"></script>
 </body>
+
 </html>

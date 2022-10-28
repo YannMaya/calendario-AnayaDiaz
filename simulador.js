@@ -140,6 +140,14 @@ function eliminarTodo(){
     })
 }   
 
+function removeFromLocalStorage(idUnico){
+    let tareas = JSON.parse(localStorage.getItem("tareas"))
+    let nuevasTareas = tareas.filter((tarea)=>{
+        return tarea.idUnico !== idUnico
+    }) 
+    localStorage.setItem("tareas", JSON.stringify(nuevasTareas))
+}
+
 const sincronizarStorage = () =>{
     localStorage.setItem("tareas", JSON.stringify(tareas))
 }
@@ -155,14 +163,6 @@ botonMostrarTareas.addEventListener("click", () =>{
 botonOcultarTareas.addEventListener("click",()=>{
     ocultarTareas()
 })
-
-function removeFromLocalStorage(idUnico){
-    let tareas = JSON.parse(localStorage.getItem("tareas"))
-    let nuevasTareas = tareas.filter((tarea)=>{
-        return tarea.idUnico !== idUnico
-    }) 
-    localStorage.setItem("tareas", JSON.stringify(nuevasTareas))
-}
 
 //LUXON
 const DateTime = luxon.DateTime
